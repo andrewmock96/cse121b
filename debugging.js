@@ -1,4 +1,5 @@
-const PI = 3.14;
+<script src="debugging.js"></script>
+const pi = 3.14;
 const radius = 3;
 let area = 0;
 area = radius * radius * pi;
