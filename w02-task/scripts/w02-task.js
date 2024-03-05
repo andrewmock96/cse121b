@@ -5,7 +5,7 @@
 /* Step 2 - Variables */
 let fullName = "Andrew Mock";
 let currentYear = "2024";
-let profilePicture = "images/profile.png";
+const profilePicture = "images/profile.png";
 
 /* Step 3 - Element Variables */
 const nameElement = document.getElementById("name");
