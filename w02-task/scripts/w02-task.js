@@ -11,7 +11,7 @@ let profilePicture = "w02-task\images\profile.png"
 const nameElement = document.getElementById("name")
 const foodElement = document.getElementById("food")
 const yearElement = document.querySelector("#year")
-const imageElement = document.getElementById("profilePicture")
+const imageElement = document.getElementById("pic")
 
 /* Step 4 - Adding Content */
 nameElement.innerHTML = `<strong>${fullName}</strong>`;
@@ -21,6 +21,11 @@ imageElement.setAttribute("alt", "Profile image of ${profilePicture}")
 
 /* Step 5 - Array */
 
+favFoods = ["Pizza", "Chicken Alfredo", "Ice Cream", "Pie", "Pulled Pork", "Brisket"]
+foodElement.innerHTML = '';
+favFoods.forEach(function(favFoods) {
+    console.log(favFoods);
+  });
 
 
 
