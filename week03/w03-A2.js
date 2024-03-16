@@ -59,4 +59,4 @@ function manageTasks(event) {
 document.querySelector("#submitTask").addEventListener("click", newTask);
 document.querySelector("#todoList").addEventListener("click", manageTasks);
 
-renderTasks(tasks);S
+renderTasks(tasks);
