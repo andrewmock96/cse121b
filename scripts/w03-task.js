@@ -3,12 +3,17 @@
 /* FUNCTIONS */
 /* Function Definition - Add Numbers */
 
-function add (number1, number2) {
+function add(number1, number2) {
     return number1 + number2;
 }
-let addNumber1 = Number(document.querySelector("#add1").value);
-let addNumber2 = Number(document.querySelector("#add2").value);
-document.querySelector("#sum").value = add(addNumber1, addNumber2);
+function addNumbers() {
+    let addNumber1 = Number(document.querySelector("#add1").value);
+    let addNumber2 = Number(document.querySelector("#add2").value);
+    let sum = add(addNumber1, addNumber2);
+    document.querySelector("#sum").value = sum;
+}
+
+// Add an event listener to the button with the id "addNumbers"
 document.querySelector("#addNumbers").addEventListener("click", addNumbers);
 
 /* Function Expression - Subtract Numbers */
@@ -31,19 +36,35 @@ document.querySelector("#multiplyNumbers").addEventListener("click", () => {
     document.querySelector("#product").value = product;
 });
 /* Open Function Use - Divide Numbers */
-function divide (dividend, divisor) {
+function divide(dividend, divisor) {
     return dividend / divisor;
 }
-let divideNumber1 = Number(document.querySelector("#dividend").value);
-let divideNumber2 = Number(document.querySelector("#divisor").value);
-let quotient = divide(divideNumber1, divideNumber2);
+function divideNumbers() {
+    let divideNumber1 = Number(document.querySelector("#dividend").value);
+    let divideNumber2 = Number(document.querySelector("#divisor").value);
+    let quotient = divide(divideNumber1, divideNumber2);
+    document.querySelector("#quotient").value = quotient;
+}
 document.querySelector("#divideNumbers").addEventListener("click", divideNumbers);
+
 /* Decision Structure */
 
+document.querySelector("#getTotal").addEventListener("click", () => {
+    let subtotal = Number(document.querySelector("#subtotal").value);
+    let applyDiscount = document.querySelector("#membership").checked;
+    let totalDue;
+    if (applyDiscount) {
+        totalDue = subtotal * 0.8;
+    } else {
+        totalDue = subtotal;
+    }
+    document.querySelector("#total").textContent = `Total Due: $${totalDue.toFixed(2)}`;
+});
 
 /* ARRAY METHODS - Functional Programming */
 /* Output Source Array */
-
+let numbersArray = [1,2,3,4,5,6,7,8,9,10,11,12,13];
+let arrayElement = document.querySelector("#array");
 /* Output Odds Only Array */
 
 /* Output Evens Only Array */
