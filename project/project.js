@@ -1,9 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const apiKey = 'YOUR_API_KEY'; // Replace 'YOUR_API_KEY' with your actual API key
-
-    const nameElement = document.getElementById('name');
-    const foodElement = document.getElementById('food');
-    const yearElement = document.getElementById('year');
+    const apiKey = '03edc3c2bd61b27818d4bd76cb3448c2'; 
+    const locationElement = document.getElementById('location');
+    const temperatureElement = document.getElementById('temperature');
+    const descriptionElement = document.getElementById('description');
 
     // Function to fetch weather data based on current location
     function fetchWeatherByLocation(latitude, longitude) {
@@ -11,19 +10,20 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(response => response.json())
             .then(data => {
                 const weather = {
-                    name: data.name,
-                    temperature: Math.round(data.main.temp - 273.15), // Convert temperature from Kelvin to Celsius
+                    location: data.name,
+                    temperature: Math.round((data.main.temp - 273.15) * 9/5 + 32), // Convert temperature from Kelvin to Fahrenheit
                     description: data.weather[0].description
                 };
 
-                // Update DOM elements with weather data
-                nameElement.textContent = weather.name;
-                foodElement.textContent = `Temperature: ${weather.temperature}°C, Description: ${weather.description}`;
+                // Update elements with weather info
+                locationElement.textContent = weather.location;
+                temperatureElement.textContent = `${weather.temperature}`;
+                descriptionElement.textContent = weather.description;
             })
             .catch(error => {
                 console.error('Error fetching weather data:', error);
                 // Display error message in case of failure
-                nameElement.textContent = 'Error fetching weather';
+                locationElement.textContent = 'Error fetching weather';
             });
     }
 
@@ -38,14 +38,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }, function (error) {
             console.error('Error getting location:', error);
             // Display error message in case of failure to get location
-            nameElement.textContent = 'Error getting location';
+            locationElement.textContent = 'Error getting location';
         });
     } else {
         console.error('Geolocation is not supported by this browser');
         // Display error message if geolocation is not supported
-        nameElement.textContent = 'Geolocation not supported';
+        locationElement.textContent = 'Geolocation not supported';
     }
-
-    // Update current year in footer
-    yearElement.textContent = new Date().getFullYear();
 });
